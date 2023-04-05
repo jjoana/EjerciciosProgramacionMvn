@@ -25,4 +25,9 @@ public class Persona{
         return fechaDeNacimiento;
     }
 
+    @Override
+    public String toString() {
+        String resultado = nombre + ": " + calcularEdad();
+        return resultado;
+    }
 }
