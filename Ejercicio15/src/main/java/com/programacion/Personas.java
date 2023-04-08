@@ -9,46 +9,77 @@ public class Personas {
         lista.add(persona);
     }
 
-    public ArrayList<Persona> getListado() {
+    public ArrayList<Persona> getLista() {
         return lista;
     }
 
     public Persona elMasJoven() {
-        int edadInicial = 1000;
-        Persona seleccionada = new Persona();
-        for (Persona p : lista) {
-            if (p.calcularEdad() < edadInicial) {
-                edadInicial = (int) p.calcularEdad();
-                seleccionada = p;
+
+        ElMasJoven soyYo = () -> {
+            long edadInicial = 200;
+            Persona seleccionada = new Persona();
+            for (Persona p : getLista()) {
+                if (p.calcularEdad() < edadInicial) {
+                    edadInicial = p.calcularEdad();
+                    seleccionada = p;
+                }
             }
-            ;
-        }
-        return seleccionada;
+            return seleccionada;
+        };
+
+        return soyYo.elMasJoven();
     }
 
     public long calcularSumaEdades() {
-        int resultado = 0;
-        for (int i = 0; lista.size() < i; i++) {
-            if (!lista.isEmpty())
-                ;
-            resultado = (int) lista.get(i).calcularEdad();
-        }
-        return resultado;
+        CalcularSumaEdades suma = () -> {
+            int resultado = 0;
+            for (Persona p : lista) {
+                resultado += p.calcularEdad();
+            }
+            return resultado;
+
+        };
+        return suma.calcularSumaEdades();
     }
 
-    public int calcularEdadMinima() {
-        int edadInicial = 10000;
-        for (Persona p : lista) {
-            if (p.calcularEdad() < edadInicial) {
-                edadInicial = (int) p.calcularEdad();
+    public long calcularEdadMinima() {
+        CalcularEdadMinima calcula = () -> {
+            long edadInicial = 200;
+            for (Persona p : lista) {
+                if (p.calcularEdad() < edadInicial) {
+                    edadInicial = p.calcularEdad();
+                }
             }
-        }
-        return edadInicial;
+            return edadInicial;
+        };
+        return calcula.calcularEdadMinima();
     }
 
     public double calcularMediaEdad() {
-        int resultado = (int)calcularSumaEdades();
-        return resultado/lista.size();
+        CalcularMediaEdad calcula = () -> {
+            int resultado = (int) calcularSumaEdades();
+            return resultado / lista.size();
+        };
+        return calcula.calcularMediaEdad();
     }
+}
 
+@FunctionalInterface
+interface ElMasJoven {
+    public Persona elMasJoven();
+}
+
+@FunctionalInterface
+interface CalcularSumaEdades {
+    public long calcularSumaEdades();
+}
+
+@FunctionalInterface
+interface CalcularEdadMinima {
+    public long calcularEdadMinima();
+}
+
+@FunctionalInterface
+interface CalcularMediaEdad {
+    public double calcularMediaEdad();
 }
