@@ -11,6 +11,7 @@ public class App {
             .forEach(System.out::println);
 
         IntStream.range(1,50)
+            .limit(20)
             .forEach(System.out::println);
 
         IntStream.iterate( 2, (n)-> n+2)

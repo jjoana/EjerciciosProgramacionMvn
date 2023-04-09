@@ -1,8 +1,10 @@
 package com.programacion;
 
 import java.util.ArrayList;
+import java.util.function.*;
 
 public class Personas {
+    
     private ArrayList<Persona> lista = new ArrayList<Persona>();
 
     public void annadirPersona(Persona persona) {
@@ -15,7 +17,7 @@ public class Personas {
 
     public Persona elMasJoven() {
 
-        ElMasJoven soyYo = () -> {
+        Supplier<Persona> persona = () -> {
             long edadInicial = 200;
             Persona seleccionada = new Persona();
             for (Persona p : getLista()) {
@@ -27,23 +29,22 @@ public class Personas {
             return seleccionada;
         };
 
-        return soyYo.elMasJoven();
+        return persona.get();
     }
 
     public long calcularSumaEdades() {
-        CalcularSumaEdades suma = () -> {
-            int resultado = 0;
+        Supplier<Long> suma = () -> {
+            long resultado = 0;
             for (Persona p : lista) {
                 resultado += p.calcularEdad();
             }
             return resultado;
-
-        };
-        return suma.calcularSumaEdades();
+         };
+         return suma.get();
     }
 
     public long calcularEdadMinima() {
-        CalcularEdadMinima calcula = () -> {
+        Supplier<Long> calcula = () -> {
             long edadInicial = 200;
             for (Persona p : lista) {
                 if (p.calcularEdad() < edadInicial) {
@@ -52,34 +53,17 @@ public class Personas {
             }
             return edadInicial;
         };
-        return calcula.calcularEdadMinima();
+        return calcula.get();
     }
 
     public double calcularMediaEdad() {
-        CalcularMediaEdad calcula = () -> {
-            int resultado = (int) calcularSumaEdades();
-            return resultado / lista.size();
-        };
-        return calcula.calcularMediaEdad();
+        Supplier <Double> calcula = () -> {
+            double resultado = 0;
+            for (Persona p : lista) {
+                resultado += p.calcularEdad();
+            }
+            return resultado/lista.size();
+         };
+        return calcula.get();
     }
-}
-
-@FunctionalInterface
-interface ElMasJoven {
-    public Persona elMasJoven();
-}
-
-@FunctionalInterface
-interface CalcularSumaEdades {
-    public long calcularSumaEdades();
-}
-
-@FunctionalInterface
-interface CalcularEdadMinima {
-    public long calcularEdadMinima();
-}
-
-@FunctionalInterface
-interface CalcularMediaEdad {
-    public double calcularMediaEdad();
 }
