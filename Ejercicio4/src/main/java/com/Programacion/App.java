@@ -13,5 +13,6 @@ public class App {
         CalculoIntegral objeto = new CalculoIntegral(limInferior, limiteSuperior, h);
 
         System.out.println("El resultado es: " + objeto.integralEXCuadrado(limInferior, limiteSuperior, h));
+        System.out.println("El resultado es:" + objeto.integralEXCuadradoLambda(limInferior, limiteSuperior, h));
     }
 }
