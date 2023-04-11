@@ -52,3 +52,46 @@ El directorio del repositorio local se encuentra en la carpeta .m2 del usuario d
     Default locale: es_ES, platform encoding: UTF-8
     OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
 ```
+
+### Ejercicio 20.-
+
+### Ejercicio 1.- Cree un proyecto en Maven ejecutando la siguiente instrucción
+
+Comando para la creación del proyecto Maven
+```
+mvn archetype:generate -DgroupId=pr2.org -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+```
+
+### Ejercicio 2.- ¿Qué es un arquetipo en Maven?
+
+Para Maven, un arquetipo es una plantilla que se utiliza para crear nuevos proyectos. Estos se utilizan para simplificar el proceso de creación de nuevos proyectos y para asegurar que todos proyectos creados sigan una estructura.
+Los arquetipos de Maven se utilizan con el comando `mvn archetype:generate`.
+
+
+
+### Ejercicio 3- Explique el fichero pom.xml que hay en directorio my-app que se hagenerado.
+
+El archivo `pom.xml` contiene información importante sobre el proyecto, como el nombre del proyecto, la versión, la descripción, el grupo de artefactos, la licencia, la URL, las dependencias necesarias, los plugins utilizados, etc.
+
+### Ejercicio 4.- Explore el árbol de directorios.
+
+El árbol de directorios es una representación de la estructura de los directorios y archivos de un sistema de archivos.
+
+### Ejercicio 5.-Compile el programa: mvn compile
+
+El comando `mvn compile` se utiliza para compilar el código fuente de un proyecto Maven y lo genera en archivos de clase Java en el directorio de destino `target`.
+
+Este comando también compila los recursos del proyecto que se encuentran en el directorio `src` y los copia en el directorio de destino `target`.
+
+
+### Ejercicio 6.- Ejecute el programa: mvn exec:java -D exec.mainClass=pr2.org.App
+
+El comando `mvn exec:java -Dexec.mainClass=pr2.org.App` se utiliza para ejecutar una aplicación Java desde la línea de comandos utilizando Maven.
+
+### Ejercicio 7.- Elimine los artefactos generados anteriormente, vuelva compilar y ejecute de nuevo:mvn clean compile /  mvn exec:java -Dexec.mainClass=pr2.org.App
+
+- El comando `mvn clean` elimina todos los artefactos generados previamente por Maven.
+- El comando `mvn compile` compila el código fuente y los recursos de la aplicación y los genera en archivos de clase Java
+- El comando `mvn exec:java -Dexec.mainClass=pr2.org.App` invoca el plugin de Maven para ejecutar la clase principal.
+
+### Ejercicio 8.- Genere la documentación del proyecto, y explórela:
