@@ -1,7 +1,20 @@
 # EjerciciosProgramacionMvn
 Hoja de Ejercicios de clase
 
-## Ejercicios Maven
+## Ejercicios
+
+### Ejercicio 10.- Explique qué es List en Java y qué relación guarda con ArrayList.
+
+Una listen java, es una estructura de datos que puede contener varios elementos en una secuencia ordenada.
+ArrayList es una clase concreta que implementa la interfaz List
+
+ArrayList es una clase que implementa la interfaz List.
+
+
+### Ejercicio 12.- Explique qué es una expresion lambda y para qué sirve.
+Las expresiones lambda son funciones anónimas, es decir, funciones que no necesitan una clase. El operador lambda (->) separa la declaración de parámetros de la declaración del cuerpo de la función. Las expresiones lambda son un método sin declaración, es decir, sin modificadores de acceso, que devuelve un valor y un nombre. Permiten escribir un método y utilizarlo inmediatamente. Esto es útil en el caso de una única llamada a un método, ya que permite reducir el tiempo de declarar y escribir el método sin tener que crear una clase.
+
+
 ### Ejercicio 18
 
 ### 1.- ¿Qué es Maven?
