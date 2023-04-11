@@ -95,3 +95,23 @@ El comando `mvn exec:java -Dexec.mainClass=pr2.org.App` se utiliza para ejecutar
 - El comando `mvn exec:java -Dexec.mainClass=pr2.org.App` invoca el plugin de Maven para ejecutar la clase principal.
 
 ### Ejercicio 8.- Genere la documentación del proyecto, y explórela:
+```
+mvn site
+cd target/site
+firefox index.html &
+```
+El comando `mvn site` genera la documentación del sitio para tu proyecto de Maven, que incluye informes.
+El comando `cd target/site` cambia el directorio de trabajo actual al directorio target/site.
+
+### Ejercicio 9.- Explique en qué consisten las siguientes fases:
+```
+- Validate: Esta fase se utiliza para validar el proyecto, es decir, verificar si el proyecto es correcto
+- Compile: Se compilan los archivos fuente del proyecto y se generan los archivos de clases 
+- Test: Se ejecutan las pruebas de unidad del proyecto utilizando una herramienta de pruebas como JUnit.
+- Package: En esta fase, se toman los archivos compilados y los empaqueta en un formato específico, como JAR o WAR, que se puede distribuir y utilizar
+-Install: En Maven, la fase install se utiliza para instalar un artefacto en el repositorio local de Maven.
+-Deploy: En Maven, la fase deploy se utiliza para desplegar el artefacto construido en un repositorio remoto
+-Clean: En Maven, la fase clean se utiliza para eliminar los archivos generados por las fases anteriores.
+-Site: En Maven, la fase site se utiliza para generar la documentación del proyecto y el sitio web asociado.
+```
+
