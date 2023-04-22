@@ -44,7 +44,7 @@ public class Tablero {
         }
     }
 
-    public void estadoSiguiente() {
+    public void transitarAlEstadoSiguiente() {
         for (int fila = 0; fila < DIMENSION; fila++) {
             for (int columna = 0; columna < DIMENSION; columna++) {
                 int vecinosVivos = 0;
@@ -110,10 +110,18 @@ public class Tablero {
                 } else {
                     estadoSiguiente[fila][columna] = 0;
                 }
-
             }
         }
 
+        // Ya tengo calculado el estado siguiente y conozco el actual
+        // Quiero actualizar el estado actual con el estado siguiente que acabo de calcular
+        // Debo bsucar la forma de copiar los valores que tiene estado siguiente en estado actual
+
+        for (int fila = 0; fila < DIMENSION; fila++) {
+            for (int columna = 0; columna < DIMENSION; columna++) {
+                estadoActual[fila][columna] = estadoSiguiente[fila][columna];
+            }
+        }
     }
 
     public int[][] getestadoActual(){

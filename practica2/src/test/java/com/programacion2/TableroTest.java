@@ -48,7 +48,7 @@ public class TableroTest {
         Tablero mitablero = new Tablero(4, "matrizTest.txt");
         mitablero.leerEstadoActual();
         actual = mitablero.getestadoActual();
-        mitablero.estadoSiguiente();
+        mitablero.transitarAlEstadoSiguiente();
         siguiente_calculado = mitablero.getestadoSiguiente();
 
         siguiente_esperado[0][0] = 0;
@@ -81,7 +81,7 @@ public class TableroTest {
         Tablero mitablero = new Tablero(4, "matrizTest2.txt");
         mitablero.leerEstadoActual();
         actual = mitablero.getestadoActual();
-        mitablero.estadoSiguiente();
+        mitablero.transitarAlEstadoSiguiente();
         siguiente_calculado = mitablero.getestadoSiguiente();
 
         siguiente_esperado[0][0] = 0;
@@ -113,7 +113,7 @@ public class TableroTest {
         Tablero mitablero = new Tablero(4, "matrizTest3.txt");
         mitablero.leerEstadoActual();
         actual = mitablero.getestadoActual();
-        mitablero.estadoSiguiente();
+        mitablero.transitarAlEstadoSiguiente();
         siguiente_calculado = mitablero.getestadoSiguiente();
 
         siguiente_esperado[0][0] = 0;
@@ -136,4 +136,38 @@ public class TableroTest {
         assertArrayEquals(siguiente_calculado, siguiente_esperado);
     }
 
+    @Test
+    void leerEstadoActualTest4(){
+        int [][] actual = new int [4][4];
+        int [][] siguiente_calculado = new int  [4][4];
+        int [][] siguiente_esperado = new int [4][4];
+
+        Tablero mitablero = new Tablero(4, "matrizTest.txt");
+        mitablero.leerEstadoActual();
+        actual = mitablero.getestadoActual();
+        
+        for (int i = 0; i < 2; i++) {
+            mitablero.transitarAlEstadoSiguiente();
+        }
+        siguiente_calculado = mitablero.getestadoSiguiente();
+
+        siguiente_esperado[0][0] = 0;
+        siguiente_esperado[0][1] = 0;
+        siguiente_esperado[0][2] = 0;
+        siguiente_esperado[0][3] = 0;
+        siguiente_esperado[1][0] = 1;
+        siguiente_esperado[1][1] = 1;
+        siguiente_esperado[1][2] = 0;
+        siguiente_esperado[1][3] = 0;
+        siguiente_esperado[2][0] = 1;
+        siguiente_esperado[2][1] = 0;
+        siguiente_esperado[2][2] = 1;
+        siguiente_esperado[2][3] = 0;
+        siguiente_esperado[3][0] = 0;
+        siguiente_esperado[3][1] = 1;
+        siguiente_esperado[3][2] = 0;
+        siguiente_esperado[3][3] = 0;
+
+        assertArrayEquals(siguiente_calculado, siguiente_esperado);
+    }
 }
