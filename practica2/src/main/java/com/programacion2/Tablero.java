@@ -3,6 +3,8 @@ package com.programacion2;
 import java.io.FileReader;
 import java.io.IOException;
 
+import javax.tools.Diagnostic;
+
 public class Tablero {
     private static int DIMENSION;
     private String nombreFichero;
@@ -47,10 +49,10 @@ public class Tablero {
             for (int columna = 0; columna < DIMENSION; columna++) {
                 int vecinosVivos = 0;
 
-                int filaAnterior = fila--;
-                int filaPosterior = fila++;
-                int columnaAnterior = columna--;
-                int columnaPosterior = columna++;
+                int filaAnterior = fila-1;
+                int filaPosterior = fila+1;
+                int columnaAnterior = columna-1;
+                int columnaPosterior = columna+1;
 
                 if (filaAnterior >= 0 && columnaAnterior >= 0) {
                     if (estadoActual[filaAnterior][columnaAnterior] == 1) {
@@ -64,37 +66,37 @@ public class Tablero {
                     }
                 }
 
-                if (filaAnterior >= 0 || columnaPosterior <= 29) {
+                if (filaAnterior >= 0 && columnaPosterior <= DIMENSION-1) {
                     if (estadoActual[filaAnterior][columnaPosterior] == 1) {
                         vecinosVivos++;
                     }
                 }
 
-                if (columnaAnterior <= 0) {
+                if (columnaAnterior >= 0) {
                     if (estadoActual[fila][columnaAnterior] == 1) {
                         vecinosVivos++;
                     }
                 }
 
-                if (columnaPosterior <= 29) {
+                if (columnaPosterior <= DIMENSION-1) {
                     if (estadoActual[fila][columnaPosterior] == 1) {
                         vecinosVivos++;
                     }
                 }
 
-                if (filaPosterior <= 29 || columnaAnterior <= 0) {
+                if (filaPosterior <= DIMENSION-1 && columnaAnterior >= 0) {
                     if (estadoActual[filaPosterior][columnaAnterior] == 1) {
                         vecinosVivos++;
                     }
                 }
 
-                if (filaPosterior <= 29) {
+                if (filaPosterior <= DIMENSION-1) {
                     if (estadoActual[filaPosterior][columna] == 1) {
                         vecinosVivos++;
                     }
                 }
 
-                if (filaPosterior <= 29 || columnaPosterior <= 0) {
+                if (filaPosterior <= DIMENSION-1 && columnaPosterior <= DIMENSION-1) {
                     if (estadoActual[filaPosterior][columnaPosterior] == 1) {
                         vecinosVivos++;
                     }
@@ -116,6 +118,10 @@ public class Tablero {
 
     public int[][] getestadoActual(){
         return estadoActual;
+    }
+
+    public int[][] getestadoSiguiente(){
+        return estadoSiguiente;
     }
 
     public String getdireccionArchivo(){
