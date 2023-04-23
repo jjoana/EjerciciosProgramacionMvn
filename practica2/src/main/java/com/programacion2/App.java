@@ -8,10 +8,9 @@ public class App {
     public static void main(String[] args) {
         Tablero objeto = new Tablero(4, "matrizTest.txt");
         objeto.leerEstadoActual();
-        objeto.transitarAlEstadoSiguiente();
 
         try {
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 2; i++) {
                 TimeUnit.SECONDS.sleep(1);
                 objeto.transitarAlEstadoSiguiente();
                 System.out.println(objeto);
