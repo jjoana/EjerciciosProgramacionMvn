@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 
 @DisplayName ("Tests para la clase …")
-public class AppTest {
+public class SumarNumeroTest {
 
 
 
